@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Room – Case Study</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --pink: #f4a7a7;
+      --pink-lt: #fde8e8;
+      --blush: #fdf5f5;
+      --dark: #1a1a1a;
+      --mid: #555;
+      --light: #888;
+      --white: #ffffff;
+      --accent: #e05c5c;
+      --yellow: #f5c842;
+      --green: #5cb85c;
+      --blue: #4a90d9;
+      --purple: #9b59b6;
+      --radius: 12px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+
+    /* ── PAGE WRAPPER ── */
+    .page-wrap {
+      width: 100%;
+      max-width: 100%;
+      /* increase width */
+      margin: 0 auto;
+      /* remove top gap */
+      background: #fff;
+      border-radius: 0;
+      /* remove card look */
+      overflow: visible;
+      box-shadow: none;
+      /* remove shadow */
+    }
+
+    /* ── TOP HEADER ── */
+    .top-header {
+      background: #e8e8e8;
+      text-align: center;
+      padding: 18px 24px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: #555;
+      letter-spacing: .5px;
+    }
+
+    .top-header strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    /* ── HERO SECTION ── */
+    .hero {
+      height: 520px;
+
+      /* SINGLE IMAGE HERE */
+      background: url("img/jrb quiz/Frame 1984078426.png") no-repeat center right;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      padding: 60px;
+      position: relative;
+      height: 520px;
+    }
+
+    /* DARK FADE FOR TEXT VISIBILITY (optional but pro) */
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+    }
+
+    /* TEXT BLOCK */
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      max-width: 450px;
+      margin-bottom: 10%;
+    }
+
+    /* HEADING */
+    .hero-overlay h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    /* PARA */
+    .hero-overlay p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    /* UX */
+    .ux h2 {
+      font-size: 28px;
+    }
+
+    .line {
+      width: 120px;
+      height: 4px;
+      background: #e79c94;
+      margin: 8px 0 15px;
+      border-radius: 10px;
+    }
+
+    /* AUTHOR */
+    .author {
+      display: inline-block;
+      background: #e79c94;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    /* DURATION */
+    .duration strong {
+      display: block;
+    }
+
+    .duration span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    /* MOBILE */
+    @media(max-width: 900px) {
+      .hero {
+        height: auto;
+        padding: 40px 20px;
+        background-position: center;
+      }
+
+      .hero::before {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+
+    .hero-text p {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--pink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: .3px;
+    }
+
+    .tag.outline {
+      background: transparent;
+      border: 1.5px solid var(--pink);
+      color: var(--accent);
+    }
+
+    .meta {
+      margin-top: 20px;
+      display: flex;
+      gap: 28px;
+    }
+
+    .meta-item label {
+      font-size: 10px;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      display: block;
+    }
+
+    .meta-item span {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* Phone mockups */
+    .hero-phones {
+      position: relative;
+      height: 260px;
+    }
+
+    .phone {
+      position: absolute;
+      width: 110px;
+      background: var(--dark);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .22);
+    }
+
+    .phone-inner {
+      background: var(--white);
+      margin: 6px;
+      border-radius: 16px;
+      height: 180px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-bar {
+      height: 28px;
+      background: var(--pink-lt);
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      gap: 5px;
+    }
+
+    .phone-bar span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--pink);
+    }
+
+    .phone-content {
+      flex: 1;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .phone-img-placeholder {
+      height: 60px;
+      background: linear-gradient(135deg, #f9d0d0 0%, #fde8e8 100%);
+      border-radius: 8px;
+    }
+
+    .phone-line {
+      height: 7px;
+      background: #eee;
+      border-radius: 4px;
+    }
+
+    .phone-line.short {
+      width: 60%;
+    }
+
+    .phone-line.btn {
+      width: 70%;
+      height: 14px;
+      background: var(--pink);
+      border-radius: 6px;
+    }
+
+    .phone-1 {
+      left: 20px;
+      top: 20px;
+      z-index: 2;
+    }
+
+    .phone-2 {
+      right: 20px;
+      top: 50px;
+      z-index: 1;
+      transform: rotate(4deg);
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 52px 56px;
+    }
+
+    section+section {
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--light);
+      margin-bottom: 28px;
+    }
+
+    /* ── DESIGN APPROACH ── */
+    .approach {
+      background: var(--white);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .approach-text p {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .approach-visual {
+      background: var(--blush);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .approach-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 14px 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+    }
+
+    .approach-card .icon {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .approach-card p {
+      font-size: 11px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    /* ── DESIGN PROCESS ── */
+    .process {
+      background: var(--blush);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      text-align: center;
+    }
+
+    .step-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 10px 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+    }
+
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin: 0 auto 10px;
+    }
+
+    .step-card h4 {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .step-card p {
+      font-size: 10px;
+      color: var(--light);
+      line-height: 1.5;
+    }
+
+    /* ── EMPATHY MAP ── */
+    .empathy {
+      background: var(--white);
+    }
+
+    .empathy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .empathy-card {
+      border-radius: var(--radius);
+      padding: 22px;
+      background: var(--blush);
+    }
+
+    .empathy-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .empathy-item {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: var(--mid);
+      line-height: 1.5;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+    }
+
+    .empathy-item strong {
+      display: block;
+      font-size: 11px;
+      color: var(--light);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .empathy-img {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .emp-img-box {
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #e8d5d5, #f7e8e8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--pink);
+    }
+
+    /* ── PRODUCT SHOWCASE ── */
+    .showcase {
+      background: var(--blush);
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .showcase-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+      transition: box-shadow .2s;
+    }
+
+    .showcase-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+    }
+
+    .showcase-card-img {
+      height: 140px;
+      background: linear-gradient(135deg, #f9d0d0 0%, #fde8e8 80%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    .showcase-card-body {
+      padding: 16px 18px;
+    }
+
+    .showcase-card-body h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .showcase-card-body p {
+      font-size: 12px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    .showcase-btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--dark);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      letter-spacing: .3px;
+    }
+
+    .showcase-wide {
+      grid-column: 1 / -1;
+      background: var(--dark);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      color: var(--white);
+    }
+
+    .showcase-wide-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .showcase-wide-text p {
+      font-size: 13px;
+      opacity: .7;
+      line-height: 1.6;
+    }
+
+    .showcase-wide-img {
+      flex-shrink: 0;
+      width: 160px;
+      height: 120px;
+      background: linear-gradient(135deg, #3a3a3a, #555);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .showcase-wide-img span {
+      font-size: 11px;
+      opacity: .5;
+    }
+
+    /* ── BRAND BAR ── */
+    .brand-bar {
+      background: var(--white);
+      padding: 20px 56px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      border-top: 1px solid #f0f0f0;
+      flex-wrap: wrap;
+    }
+
+    .brand-bar p {
+      font-size: 11px;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .brand-logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--mid);
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── DESKTOP MOCKUP ── */
+    .desktop-mockup {
+      background: #1e1e1e;
+      padding: 40px 56px;
+    }
+
+    .desktop-mockup .section-title {
+      color: var(--white);
+    }
+
+    .desktop-mockup .section-sub {
+      color: #888;
+    }
+
+    .browser {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, .4);
+    }
+
+    .browser-bar {
+      background: #f3f3f3;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .bd-red {
+      background: #ff5f57;
+    }
+
+    .bd-yellow {
+      background: #febc2e;
+    }
+
+    .bd-green {
+      background: #28c840;
+    }
+
+    .browser-url {
+      flex: 1;
+      margin-left: 10px;
+      background: #e5e5e5;
+      border-radius: 20px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      font-size: 11px;
+      color: #888;
+    }
+
+    .browser-body {
+      padding: 0;
+    }
+
+    .browser-hero-strip {
+      background: var(--blush);
+      padding: 28px 32px;
+      text-align: center;
+    }
+
+    .browser-hero-strip h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .browser-hero-strip p {
+      font-size: 12px;
+      color: var(--mid);
+    }
+
+    .browser-product-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 0;
+      min-height: 180px;
+    }
+
+    .bps-main {
+      background: linear-gradient(135deg, #f0e0e0, #fde8e8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+    }
+
+    .bps-side {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bps-thumb {
+      height: 48px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 11px;
+      color: var(--mid);
+      gap: 8px;
+    }
+
+    .bps-thumb span {
+      width: 30px;
+      height: 30px;
+      background: var(--pink-lt);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .browser-nav-strip {
+      background: var(--dark);
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .bnav-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 14px;
+    }
+
+    .bnav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .bnav-links a {
+      color: #aaa;
+      font-size: 11px;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .bnav-links a:hover {
+      color: var(--white);
+    }
+
+    .bnav-btn {
+      background: var(--pink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 36px 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      color: #aaa;
+    }
+
+    footer h4 {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: var(--pink);
+      text-decoration: none;
+      font-size: 12px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    footer a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      background: #111;
+      text-align: center;
+      padding: 14px 56px;
+      font-size: 11px;
+      color: #555;
+    }
+
+    .footer-bottom span {
+      color: var(--pink);
+    }
+
+    /* ── DIMENSIONS SECTION ── */
+    .dimensions-sec {
+      background: var(--white);
+    }
+
+    .dim-title-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .dim-title-row h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .dim-pill {
+      background: var(--dark);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: .4px;
+    }
+
+    .dim-browser {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .09);
+    }
+
+    .dim-browser-bar {
+      background: #f5f5f5;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dim-browser-bar .bd {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dim-browser-bar .bd-r {
+      background: #ff5f57;
+    }
+
+    .dim-browser-bar .bd-y {
+      background: #febc2e;
+    }
+
+    .dim-browser-bar .bd-g {
+      background: #28c840;
+    }
+
+    .dim-browser-bar .url-bar {
+      flex: 1;
+      margin-left: 8px;
+      background: #e5e5e5;
+      border-radius: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 10px;
+      color: #888;
+    }
+
+    .dim-main-content {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      min-height: 320px;
+    }
+
+    .dim-left {
+      background: linear-gradient(135deg, #f7eded 0%, #fdf5f5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    .dim-wardrobe {
+      width: 140px;
+      height: 220px;
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .dim-wardrobe-top {
+      height: 8px;
+      background: #e8e8e8;
+    }
+
+    .dim-wardrobe-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      padding: 8px;
+    }
+
+    .dim-wardrobe-panel {
+      background: #f5f5f5;
+      border-radius: 4px;
+    }
+
+    .dim-wardrobe-bottom {
+      height: 16px;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .dim-wardrobe-bottom span {
+      width: 20px;
+      height: 4px;
+      background: #ccc;
+      border-radius: 2px;
+    }
+
+    .dim-measure-label {
+      position: absolute;
+      top: 50%;
+      right: -60px;
+      transform: translateY(-50%);
+      font-size: 10px;
+      color: var(--mid);
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .dim-measure-label::before {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: var(--pink);
+      display: block;
+    }
+
+    .dim-measure-label::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: var(--pink);
+      display: block;
+    }
+
+    .dim-right {
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .dim-right h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .dim-thumb-row {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .dim-thumb {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--mid);
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+
+    .dim-thumb:hover {
+      border-color: var(--pink);
+      background: var(--pink-lt);
+    }
+
+    .dim-thumb.active {
+      border-color: var(--accent);
+      background: var(--pink-lt);
+    }
+
+    .dim-thumb-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--pink-lt);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .dim-thumb-info {
+      flex: 1;
+    }
+
+    .dim-thumb-info strong {
+      display: block;
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--dark);
+    }
+
+    .dim-thumb-info span {
+      font-size: 10px;
+      color: var(--light);
+    }
+
+    .dim-nav-strip {
+      background: var(--dark);
+      padding: 11px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dns-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 13px;
+    }
+
+    .dns-tabs {
+      display: flex;
+      gap: 20px;
+    }
+
+    .dns-tabs a {
+      color: #aaa;
+      font-size: 11px;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .dns-tabs a:hover,
+    .dns-tabs a.active {
+      color: var(--white);
+    }
+
+    .dns-btn-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dns-btn {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dns-btn.outline {
+      background: transparent;
+      border: 1.5px solid #aaa;
+      color: #aaa;
+    }
+
+    .dns-btn.solid {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    /* ── WHAT COMES IN BOX ── */
+    .whatbox-sec {
+      background: var(--blush);
+    }
+
+    .whatbox-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .whatbox-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .whatbox-header p {
+      font-size: 13px;
+      color: var(--light);
+      margin-top: 6px;
+    }
+
+    .whatbox-cats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .wcat-pill {
+      background: var(--white);
+      border: 1.5px solid #e0e0e0;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      color: var(--mid);
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .wcat-pill:hover,
+    .wcat-pill.active {
+      background: var(--dark);
+      color: var(--white);
+      border-color: var(--dark);
+    }
+
+    .whatbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .wbox-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .wbox-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .10);
+    }
+
+    .wbox-img {
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+    }
+
+    .wbox-img.c1 {
+      background: linear-gradient(135deg, #f9d5d5, #fde8e8);
+    }
+
+    .wbox-img.c2 {
+      background: linear-gradient(135deg, #d5e8f9, #e8f4fd);
+    }
+
+    .wbox-img.c3 {
+      background: linear-gradient(135deg, #d5f9d5, #e8fde8);
+    }
+
+    .wbox-img.c4 {
+      background: linear-gradient(135deg, #f9f5d5, #fdfae8);
+    }
+
+    .wbox-img.c5 {
+      background: linear-gradient(135deg, #e8d5f9, #f5e8fd);
+    }
+
+    .wbox-img.c6 {
+      background: linear-gradient(135deg, #f9d5e8, #fde8f4);
+    }
+
+    .wbox-body {
+      padding: 12px 14px;
+    }
+
+    .wbox-body h4 {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--dark);
+    }
+
+    .wbox-body p {
+      font-size: 11px;
+      color: var(--light);
+      line-height: 1.5;
+    }
+
+    .wbox-dims {
+      margin-top: 8px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .wbox-dim-tag {
+      background: var(--blush);
+      color: var(--mid);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .whatbox-table {
+      margin-top: 24px;
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+    }
+
+    .wt-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      padding: 12px 20px;
+      border-bottom: 1px solid #f5f5f5;
+      font-size: 12px;
+      align-items: center;
+    }
+
+    .wt-row.header {
+      background: #f8f8f8;
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--light);
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .wt-row:last-child {
+      border-bottom: none;
+    }
+
+    .wt-row:hover:not(.header) {
+      background: var(--blush);
+    }
+
+    .wt-name {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .wt-check {
+      color: var(--green);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .wt-cross {
+      color: #e05c5c;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .howitworks-sec {
+      background: var(--white);
+    }
+
+    .hiw-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hiw-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hiw-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 18px;
+      background: var(--blush);
+      border-radius: var(--radius);
+      transition: box-shadow .2s;
+    }
+
+    .hiw-step:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .07);
+    }
+
+    .hiw-num {
+      width: 36px;
+      height: 36px;
+      background: var(--dark);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .hiw-step-text h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hiw-step-text p {
+      font-size: 12px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    .hiw-visual {
+      background: var(--blush);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hiw-vis-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    }
+
+    .hiw-vis-icon {
+      font-size: 24px;
+    }
+
+    .hiw-vis-text strong {
+      font-size: 12px;
+      font-weight: 700;
+      display: block;
+    }
+
+    .hiw-vis-text span {
+      font-size: 11px;
+      color: var(--light);
+    }
+
+    .hiw-vis-bar {
+      height: 4px;
+      background: #eee;
+      border-radius: 2px;
+      margin-top: 6px;
+    }
+
+    .hiw-vis-bar-fill {
+      height: 4px;
+      background: var(--pink);
+      border-radius: 2px;
+    }
+
+    /* ── THANK YOU ── */
+    .thankyou-sec {
+      background: var(--dark);
+      padding: 60px 56px 48px;
+      text-align: center;
+    }
+
+    .thankyou-sec h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .thankyou-sec h2 span {
+      color: var(--pink);
+    }
+
+    .thankyou-sec p {
+      font-size: 14px;
+      color: #aaa;
+      max-width: 440px;
+      margin: 0 auto 32px;
+      line-height: 1.8;
+    }
+
+    .ty-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 32px 0;
+    }
+
+    .ty-photo {
+      height: 120px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .08);
+      transition: background .2s;
+    }
+
+    .ty-photo:hover {
+      background: rgba(255, 255, 255, .10);
+    }
+
+    .ty-links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .ty-link {
+      padding: 10px 24px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .ty-link.primary {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    .ty-link.primary:hover {
+      background: var(--accent);
+    }
+
+    .ty-link.secondary {
+      background: transparent;
+      border: 1.5px solid #555;
+      color: #aaa;
+    }
+
+    .ty-link.secondary:hover {
+      border-color: #aaa;
+      color: var(--white);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-wrap>* {
+      animation: fadeUp .5s ease both;
+    }
+
+    .page-wrap>*:nth-child(2) {
+      animation-delay: .1s;
+    }
+
+    .page-wrap>*:nth-child(3) {
+      animation-delay: .15s;
+    }
+
+    .page-wrap>*:nth-child(4) {
+      animation-delay: .2s;
+    }
+
+    .page-wrap>*:nth-child(5) {
+      animation-delay: .25s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-overlay">
+        <h1>Create Room PDP</h1>
+
+        <p>
+          The challenge was presenting extensive product information without making the page feel heavy or overwhelming.
+          The solution focused on transforming detailed specifications into a clean, interactive, and visually guided
+          experience.
+        </p>
+
+        <!-- <div class="author">by Kalyani</div>
+
+        <div class="duration">
+          <strong>Duration:</strong>
+          <span>2 weeks</span>
+        </div> -->
+      </div>
+
+    </section>
+
+    <!-- DESIGN APPROACH -->
+    <section class="approach">
+      <h2 class="section-title">Design Approach</h2>
+      <p class="section-sub">Screen-centered, data-driven separation</p>
+      <div class="approach-grid">
+        <div class="approach-text">
+          <p>Screen-centered with a data-driven separation makes every customization screen its own territory.
+            Horizontal navigation allows the user to NOT see EVERYTHING at once.</p>
+          <p>Use of iconography, color patterns and filtering is explored to build out features and offerings, along the
+            way while the user can see what they're offering.</p>
+        </div>
+        <div class="approach-visual">
+          <div class="approach-card">
+            <div class="icon">🧩</div>
+            <p>Modular component system with reusable UI patterns</p>
+          </div>
+          <div class="approach-card">
+            <div class="icon">🎨</div>
+            <p>Consistent color language tied to room categories</p>
+          </div>
+          <div class="approach-card">
+            <div class="icon">📐</div>
+            <p>Grid-based layouts for visual balance</p>
+          </div>
+          <div class="approach-card">
+            <div class="icon">♿</div>
+            <p>Accessible contrast ratios and touch targets</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGN PROCESS -->
+    <section class="process">
+      <h2 class="section-title" style="text-align:center;">Design Process</h2>
+      <p class="section-sub" style="text-align:center;">Five-stage double diamond methodology</p>
+      <div class="process-steps">
+        <div class="step-card">
+          <div class="step-icon" style="background:#fff3cd;">❤️</div>
+          <h4>Understand</h4>
+          <p>Competitive Analysis &amp; Heuristics</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon" style="background:#fce4e4;">✏️</div>
+          <h4>Design</h4>
+          <p>Wireframes, Components &amp; Prototype</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon" style="background:#fce4e4;">🎯</div>
+          <h4>Define</h4>
+          <p>User Research &amp; HMW Notes</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon" style="background:#e8f5e9;">🧪</div>
+          <h4>Test</h4>
+          <p>Usability Testing &amp; Focus Group</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon" style="background:#e3f2fd;">🚀</div>
+          <h4>Update</h4>
+          <p>Iteration &amp; Final Prototype</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMPATHY MAP -->
+    <section class="empathy">
+      <h2 class="section-title" style="text-align:center;">Empathy Map</h2>
+      <p class="section-sub" style="text-align:center;">Understanding what users say, think, do, and feel</p>
+      <div class="empathy-grid">
+        <div class="empathy-card">
+          <h3>Says</h3>
+          <div class="empathy-item"><strong>Quote</strong>"I want to see all options before deciding on a style."</div>
+          <div class="empathy-item"><strong>Quote</strong>"Dimensions are important — I need exact measurements."</div>
+          <div class="empathy-item"><strong>Quote</strong>"Shopping for furniture online is overwhelming."</div>
+        </div>
+        <div class="empathy-card">
+          <h3>Thinks</h3>
+          <div class="empathy-item"><strong>Thought</strong>Frustrated, but open to new solutions if guided well.</div>
+          <div class="empathy-item"><strong>Thought</strong>Would love a way to visualize before buying.</div>
+          <div class="empathy-item"><strong>Thought</strong>What if the product doesn't match my space?</div>
+        </div>
+        <div class="empathy-card">
+          <h3>Does</h3>
+          <div class="empathy-item"><strong>Action</strong>Browses multiple tabs simultaneously to compare.</div>
+          <div class="empathy-item"><strong>Action</strong>Takes screenshots for later reference.</div>
+          <div class="empathy-item"><strong>Action</strong>Reads reviews extensively before committing.</div>
+        </div>
+        <div class="empathy-card">
+          <h3>Feels</h3>
+          <div class="empathy-item"><strong>Emotion</strong>Overwhelmed by too many choices without guidance.</div>
+          <div class="empathy-item"><strong>Emotion</strong>Excited when customization options are clear and visual.
+          </div>
+          <div class="empathy-item"><strong>Emotion</strong>Anxious about wrong dimensions or fitment.</div>
+        </div>
+        <div class="empathy-img">
+          <div class="emp-img-box">🪑</div>
+          <div class="emp-img-box">🛋️</div>
+          <div class="emp-img-box">🛏️</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT SHOWCASE -->
+    <section class="showcase">
+      <h2 class="section-title">Product Screens</h2>
+      <p class="section-sub">Key UI screens from the design solution</p>
+      <div class="showcase-grid">
+        <div class="showcase-card">
+          <div class="showcase-card-img">🪑</div>
+          <div class="showcase-card-body">
+            <h4>Refined quality &amp; craftsmanship</h4>
+            <p>Showcasing material quality with zoomable imagery and dimension guides integrated into the PDP.</p>
+            <a href="#" class="showcase-btn">View Screen →</a>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-img">📦</div>
+          <div class="showcase-card-body">
+            <h4>What comes in the box</h4>
+            <p>Transparent breakdown of package contents, dimensions, and assembly requirements.</p>
+            <a href="#" class="showcase-btn">View Screen →</a>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-img">🔍</div>
+          <div class="showcase-card-body">
+            <h4>What is a dreambox?</h4>
+            <p>Introducing users to the product concept with a guided onboarding carousel.</p>
+            <a href="#" class="showcase-btn">View Screen →</a>
+          </div>
+        </div>
+        <div class="showcase-card">
+          <div class="showcase-card-img">✨</div>
+          <div class="showcase-card-body">
+            <h4>Transform your creative space</h4>
+            <p>Inspiring users with a rich gallery of styled room examples using the Create Room system.</p>
+            <a href="#" class="showcase-btn">View Screen →</a>
+          </div>
+        </div>
+        <div class="showcase-wide">
+          <div class="showcase-wide-img">🏠<span>dreambox</span></div>
+          <div class="showcase-wide-text">
+            <h3>Customize your dreambox</h3>
+            <p>A fully interactive customization experience — pick sizes, finishes, internal configurations, and preview
+              in real-time before adding to cart. Seamless, intuitive, and personalized.</p>
+            <a href="#" class="showcase-btn" style="background:var(--pink); margin-top:14px;">Explore Prototype →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND BAR -->
+    <div class="brand-bar">
+      <p>Powered by</p>
+      <span class="brand-logo">dimensions</span>
+      <span class="brand-logo" style="font-size:13px;">📐 no tools</span>
+      <span class="brand-logo" style="font-size:13px;">🚀 BuzzFees</span>
+    </div>
+
+    <!-- DESKTOP MOCKUP -->
+    <section class="desktop-mockup">
+      <h2 class="section-title">Desktop Experience</h2>
+      <p class="section-sub">Responsive design scaled to full web</p>
+      <div class="browser">
+        <div class="browser-bar">
+          <div class="browser-dot bd-red"></div>
+          <div class="browser-dot bd-yellow"></div>
+          <div class="browser-dot bd-green"></div>
+          <div class="browser-url">createroom.dimensions.com/dreambox</div>
+        </div>
+        <div class="browser-body">
+          <div class="browser-hero-strip">
+            <h2>customize your dreambox</h2>
+            <p>Design your perfect space — every size, finish, and configuration made for you.</p>
+          </div>
+          <div class="browser-product-strip">
+            <div class="bps-main">🪑</div>
+            <div class="bps-side">
+              <div class="bps-thumb"><span>🎨</span> Pearl White</div>
+              <div class="bps-thumb"><span>🌿</span> Oak Natural</div>
+              <div class="bps-thumb"><span>🖤</span> Midnight Black</div>
+              <div class="bps-thumb"><span>🌸</span> Blush Rose</div>
+            </div>
+          </div>
+          <div class="browser-nav-strip">
+            <span class="bnav-logo">dimensions</span>
+            <div class="bnav-links">
+              <a href="#">Catalog</a>
+              <a href="#">Dreambox</a>
+              <a href="#">Customize</a>
+              <a href="#">About</a>
+            </div>
+            <button class="bnav-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIMENSIONS SECTION -->
+    <section class="dimensions-sec">
+      <div class="dim-title-row">
+        <h2 class="section-title" style="margin-bottom:0;">dimensions</h2>
+        <span class="dim-pill">Product Detail Page</span>
+      </div>
+      <p class="section-sub">Full desktop experience — customizable wardrobe system</p>
+      <div class="dim-browser">
+        <div class="dim-browser-bar">
+          <div class="bd bd-r"></div>
+          <div class="bd bd-y"></div>
+          <div class="bd bd-g"></div>
+          <div class="url-bar">dimensions.com/dreambox/customize</div>
+        </div>
+        <div class="dim-main-content">
+          <div class="dim-left">
+            <div style="position:relative;">
+              <div class="dim-wardrobe">
+                <div class="dim-wardrobe-top"></div>
+                <div class="dim-wardrobe-body">
+                  <div class="dim-wardrobe-panel"></div>
+                  <div class="dim-wardrobe-panel"></div>
+                  <div class="dim-wardrobe-panel" style="background:#ede0e0;"></div>
+                  <div class="dim-wardrobe-panel"></div>
+                  <div class="dim-wardrobe-panel"></div>
+                  <div class="dim-wardrobe-panel" style="background:#ede0e0;"></div>
+                </div>
+                <div class="dim-wardrobe-bottom"><span></span><span></span></div>
+              </div>
+              <div
+                style="position:absolute;right:-16px;top:30px;font-size:9px;color:var(--pink);font-weight:700;writing-mode:vertical-rl;">
+                H: 200cm</div>
+              <div
+                style="position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--pink);font-weight:700;">
+                W: 90cm</div>
+            </div>
+          </div>
+          <div class="dim-right">
+            <h3>Choose your configuration</h3>
+            <p style="font-size:11px;color:var(--light);margin-bottom:8px;">Select size and internal layout</p>
+            <div class="dim-thumb-row">
+              <div class="dim-thumb active">
+                <div class="dim-thumb-icon">🗄️</div>
+                <div class="dim-thumb-info">
+                  <strong>Standard (90×200)</strong>
+                  <span>2 door · 4 shelves · drawer</span>
+                </div>
+              </div>
+              <div class="dim-thumb">
+                <div class="dim-thumb-icon">🪞</div>
+                <div class="dim-thumb-info">
+                  <strong>Wide (120×200)</strong>
+                  <span>3 door · 6 shelves · 2 drawers</span>
+                </div>
+              </div>
+              <div class="dim-thumb">
+                <div class="dim-thumb-icon">📦</div>
+                <div class="dim-thumb-info">
+                  <strong>Compact (60×180)</strong>
+                  <span>1 door · 3 shelves</span>
+                </div>
+              </div>
+              <div class="dim-thumb">
+                <div class="dim-thumb-icon">✨</div>
+                <div class="dim-thumb-info">
+                  <strong>Custom size</strong>
+                  <span>Enter your own dimensions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dim-nav-strip">
+          <span class="dns-logo">dimensions</span>
+          <div class="dns-tabs">
+            <a href="#" class="active">Overview</a>
+            <a href="#">Customize</a>
+            <a href="#">Delivery</a>
+            <a href="#">Reviews</a>
+          </div>
+          <div class="dns-btn-row">
+            <button class="dns-btn outline">Save design</button>
+            <button class="dns-btn solid">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT COMES IN THE BOX -->
+    <section class="whatbox-sec">
+      <div class="whatbox-header">
+        <div>
+          <h2 class="section-title" style="margin-bottom:0;">What comes in the box</h2>
+          <p>Every component you need — nothing you don't</p>
+        </div>
+      </div>
+      <div class="whatbox-cats">
+        <span class="wcat-pill active">All Items</span>
+        <span class="wcat-pill">Panels &amp; Boards</span>
+        <span class="wcat-pill">Hardware</span>
+        <span class="wcat-pill">Assembly Tools</span>
+        <span class="wcat-pill">Full Accessories</span>
+      </div>
+      <div class="whatbox-grid">
+        <div class="wbox-card">
+          <div class="wbox-img c1">🗂️</div>
+          <div class="wbox-body">
+            <h4>Side Panels (×2)</h4>
+            <p>High-density fibreboard with anti-scratch finish</p>
+            <div class="wbox-dims">
+              <span class="wbox-dim-tag">200 × 18 cm</span>
+              <span class="wbox-dim-tag">HDF</span>
+            </div>
+          </div>
+        </div>
+        <div class="wbox-card">
+          <div class="wbox-img c2">📏</div>
+          <div class="wbox-body">
+            <h4>Shelf Boards (×4)</h4>
+            <p>Adjustable height shelf boards with cam-lock slots</p>
+            <div class="wbox-dims">
+              <span class="wbox-dim-tag">88 × 35 cm</span>
+              <span class="wbox-dim-tag">Adjustable</span>
+            </div>
+          </div>
+        </div>
+        <div class="wbox-card">
+          <div class="wbox-img c3">🔩</div>
+          <div class="wbox-body">
+            <h4>Hardware Set</h4>
+            <p>Cam locks, dowels, hinges and handles included</p>
+            <div class="wbox-dims">
+              <span class="wbox-dim-tag">64 pieces</span>
+              <span class="wbox-dim-tag">Steel</span>
+            </div>
+          </div>
+        </div>
+        <div class="wbox-card">
+          <div class="wbox-img c4">🚪</div>
+          <div class="wbox-body">
+            <h4>Door Panels (×2)</h4>
+            <p>Soft-close hinged doors with magnetic catch</p>
+            <div class="wbox-dims">
+              <span class="wbox-dim-tag">90 × 196 cm</span>
+              <span class="wbox-dim-tag">Soft-close</span>
+            </div>
+          </div>
+        </div>
+        <div class="wbox-card">
+          <div class="wbox-img c5">🗃️</div>
+          <div class="wbox-body">
+            <h4>Drawer Unit (×1)</h4>
+            <p>Full-extension drawer with silent close</p>
+            <div class="wbox-dims">
+              <span class="wbox-dim-tag">86 × 18 cm</span>
+              <span class="wbox-dim-tag">Silent-close</span>
+            </div>
+          </div>
+        </div>
+        <div class="wbox-card">
+          <div class="wbox-img c6">🔧</div>
+          <div class="wbox-body">
+            <h4>Assembly Tool</h4>
+            <p>Torx key + assembly manual with QR video guide</p>
+            <div class="wbox-dims">
+              <span class="wbox-dim-tag">No tools needed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="whatbox-table">
+        <div class="wt-row header">
+          <div>Item</div>
+          <div style="text-align:center;">Standard</div>
+          <div style="text-align:center;">Wide</div>
+          <div style="text-align:center;">Compact</div>
+        </div>
+        <div class="wt-row">
+          <div class="wt-name">Side Panels</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-check">✓</div>
+        </div>
+        <div class="wt-row">
+          <div class="wt-name">Shelf Boards</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-check">✓</div>
+        </div>
+        <div class="wt-row">
+          <div class="wt-name">Drawer Unit</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-cross">✗</div>
+        </div>
+        <div class="wt-row">
+          <div class="wt-name">Mirror Door</div>
+          <div class="wt-cross">✗</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-cross">✗</div>
+        </div>
+        <div class="wt-row">
+          <div class="wt-name">Assembly Tool</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-check">✓</div>
+          <div class="wt-check">✓</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="howitworks-sec">
+      <h2 class="section-title">How it Works</h2>
+      <p class="section-sub">Simple 4-step journey from browse to beautiful room</p>
+      <div class="hiw-grid">
+        <div class="hiw-steps">
+          <div class="hiw-step">
+            <div class="hiw-num">1</div>
+            <div class="hiw-step-text">
+              <h4>Browse &amp; Discover</h4>
+              <p>The user lands on the PDP with curated imagery and an immediate sense of the product's quality and
+                style language.</p>
+            </div>
+          </div>
+          <div class="hiw-step">
+            <div class="hiw-num">2</div>
+            <div class="hiw-step-text">
+              <h4>Customize Your Dreambox</h4>
+              <p>Users select size, finish, and interior configurations using a guided, step-by-step customizer with
+                live preview.</p>
+            </div>
+          </div>
+          <div class="hiw-step">
+            <div class="hiw-num">3</div>
+            <div class="hiw-step-text">
+              <h4>Review What's in the Box</h4>
+              <p>Transparent itemized view of all included components, dimensions, and assembly complexity before
+                committing.</p>
+            </div>
+          </div>
+          <div class="hiw-step">
+            <div class="hiw-num">4</div>
+            <div class="hiw-step-text">
+              <h4>Order &amp; Transform</h4>
+              <p>Seamless checkout with delivery slot picker. Your dreambox arrives flat-packed, ready to build in under
+                2 hours.</p>
+            </div>
+          </div>
+        </div>
+        <div class="hiw-visual">
+          <div class="hiw-vis-card">
+            <div class="hiw-vis-icon">🎨</div>
+            <div class="hiw-vis-text">
+              <strong>Choose your finish</strong>
+              <span>Pearl White · Oak · Midnight Black</span>
+              <div class="hiw-vis-bar">
+                <div class="hiw-vis-bar-fill" style="width:80%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="hiw-vis-card">
+            <div class="hiw-vis-icon">📐</div>
+            <div class="hiw-vis-text">
+              <strong>Set your dimensions</strong>
+              <span>Width · Height · Depth customizable</span>
+              <div class="hiw-vis-bar">
+                <div class="hiw-vis-bar-fill" style="width:60%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="hiw-vis-card">
+            <div class="hiw-vis-icon">🧩</div>
+            <div class="hiw-vis-text">
+              <strong>Pick interior layout</strong>
+              <span>Shelves, drawers, rails &amp; hooks</span>
+              <div class="hiw-vis-bar">
+                <div class="hiw-vis-bar-fill" style="width:45%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="hiw-vis-card">
+            <div class="hiw-vis-icon">🚚</div>
+            <div class="hiw-vis-text">
+              <strong>Schedule delivery</strong>
+              <span>2–5 working days · Free above ₹20,000</span>
+              <div class="hiw-vis-bar">
+                <div class="hiw-vis-bar-fill" style="width:90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THANK YOU -->
+    <section class="thankyou-sec">
+      <h2>Thank <span>you.</span></h2>
+      <p>This case study explored how thoughtful UX design can transform a complex furniture customization flow into a
+        joyful, confidence-building experience for users.</p>
+      <div class="ty-photo-grid">
+        <div class="ty-photo">🛋️</div>
+        <div class="ty-photo">🪑</div>
+        <div class="ty-photo">🏠</div>
+        <div class="ty-photo">🎨</div>
+        <div class="ty-photo">📐</div>
+        <div class="ty-photo">✨</div>
+      </div>
+      <p style="font-size:12px;color:#666;margin-bottom:16px;">Designed with passion · Researched with empathy · Built
+        with purpose</p>
+      <div class="ty-links">
+        <a href="#" class="ty-link primary">View Prototype →</a>
+        <a href="#" class="ty-link secondary">Download Case Study</a>
+        <a href="#" class="ty-link secondary">Connect on Behance</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>
+        <h4>dimensions</h4>
+        <p>A UX case study exploring furniture customization and product detail page design for modern e-commerce.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#">Design Process</a>
+        <a href="#">Empathy Map</a>
+        <a href="#">Prototype</a>
+        <a href="#">Contact Designer</a>
+      </div>
+      <div>
+        <h4>Tools Used</h4>
+        <a href="#">Figma</a>
+        <a href="#">Miro</a>
+        <a href="#">Notion</a>
+        <a href="#">Maze (Testing)</a>
+      </div>
+    </footer>
+    <div class="footer-bottom">Made with <span>♥</span> · Create Room UX Case Study · 2026</div>
+
+  </div>
+</body>
+
+</html>

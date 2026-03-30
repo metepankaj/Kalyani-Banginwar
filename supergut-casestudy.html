@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supergut — UX Case Study</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --green: #4C8A2F;
+      --green2: #6AAF3D;
+      --gp: #E8F3E0;
+      --cream: #F7F5EF;
+      --dark: #181A18;
+      --gray: #555;
+      --gl: #888;
+      --gm: #BDBDBD;
+      --br: #E2E2E0;
+      --w: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #EDEDEB;
+      color: var(--dark);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--cream);
+      padding: 72px 0 0;
+      text-align: center;
+      border-bottom: 1px solid var(--br);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 18px;
+      color: var(--dark);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--gray);
+      max-width: 520px;
+      margin: 0 auto 48px;
+    }
+
+    .hero-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 24px;
+      padding: 0 32px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .fig {
+      width: 108px;
+      flex-shrink: 0;
+      margin-bottom: 8px;
+    }
+
+    .laptop {
+      background: #2B2B2B;
+      border-radius: 18px 18px 0 0;
+      padding: 14px 14px 0;
+      width: 540px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .18);
+    }
+
+    .ls {
+      background: linear-gradient(140deg, #E8F3E0, #C5DEA8 60%, #A0C47A);
+      border-radius: 10px 10px 0 0;
+      height: 290px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ls-logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: -1px;
+    }
+
+    .ls-tag {
+      font-size: 12px;
+      color: var(--green);
+      opacity: .65;
+    }
+
+    .ls-g {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      width: 78%;
+      margin-top: 8px;
+    }
+
+    .ls-c {
+      background: rgba(255, 255, 255, .85);
+      border-radius: 7px;
+      height: 56px;
+      padding: 9px 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .l {
+      background: #d8d8d8;
+      border-radius: 3px;
+      height: 5px;
+    }
+
+    .l.g {
+      background: var(--green2);
+    }
+
+    .l.sm {
+      width: 56%;
+    }
+
+    .l.xs {
+      width: 36%;
+    }
+
+    /* WRAP */
+    .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* SECTION */
+    .sec {
+      padding: 72px 0;
+    }
+
+    .sec+.sec {
+      padding-top: 0;
+    }
+
+    .lbl {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    h2 .hl {
+      border-bottom: 3.5px solid var(--green2);
+      padding-bottom: 2px;
+    }
+
+    .txt {
+      color: var(--gray);
+      line-height: 1.78;
+      margin-bottom: 13px;
+    }
+
+    /* DIVIDER */
+    .hr {
+      height: 1px;
+      background: var(--br);
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* PROBLEM */
+    .prob {
+      background: var(--w);
+      border-radius: 24px;
+      padding: 52px;
+      box-shadow: 0 4px 36px rgba(0, 0, 0, .06);
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .prob-fig {
+      display: flex;
+      justify-content: center;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      background: var(--gp);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(76, 138, 47, .2);
+    }
+
+    /* APPROACH */
+    .ap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .ap {
+      background: var(--w);
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, .05);
+      border-left: 4px solid var(--green2);
+    }
+
+    .ap .n {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--gp);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .ap h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .ap p {
+      font-size: 13.5px;
+      color: var(--gray);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ROLE */
+    .role {
+      text-align: center;
+      padding: 72px 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: default;
+      transition: background .2s, transform .15s;
+    }
+
+    .tag:hover {
+      background: var(--green2);
+      transform: translateY(-2px);
+    }
+
+    .tag.ol {
+      background: transparent;
+      border: 2px solid var(--green);
+      color: var(--green);
+    }
+
+    .tag.ol:hover {
+      background: var(--gp);
+    }
+
+    /* DT */
+    .dt {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      background: var(--w);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, .06);
+    }
+
+    .dts {
+      padding: 28px 14px 24px;
+      text-align: center;
+      border-right: 1px solid var(--br);
+    }
+
+    .dts:last-child {
+      border-right: none;
+    }
+
+    .dts.a {
+      background: var(--gp);
+    }
+
+    .dti {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gp);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin: 0 auto 12px;
+    }
+
+    .dts.a .dti {
+      background: var(--green);
+    }
+
+    .dts h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .dts p {
+      font-size: 11px;
+      color: var(--gl);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* TIMELINE */
+    .tlo {
+      background: var(--dark);
+      border-radius: 28px;
+      padding: 52px;
+      margin: 0 28px;
+    }
+
+    .tlo .lbl {
+      color: var(--green2);
+    }
+
+    .tlo h2 {
+      color: #fff;
+    }
+
+    .tl2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 36px;
+    }
+
+    .tl-tl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--green2);
+      margin-bottom: 14px;
+    }
+
+    .tl-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tli {
+      background: rgba(255, 255, 255, .07);
+      border-radius: 12px;
+      padding: 14px 18px;
+      border-left: 3px solid var(--green2);
+    }
+
+    .tli .wk {
+      font-size: 10px;
+      color: var(--green2);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .tli h5 {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .tli p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .45);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* WIREFRAMES */
+    .wf-h {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .wf-b {
+      background: var(--green);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 50px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .wf-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .wfc {
+      background: var(--w);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 3px 18px rgba(0, 0, 0, .07);
+    }
+
+    .wfs {
+      height: 190px;
+      background: var(--cream);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .wtb {
+      background: var(--green);
+      border-radius: 5px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      gap: 4px;
+    }
+
+    .wd {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .5);
+    }
+
+    .wb {
+      background: #ddd;
+      border-radius: 3px;
+      height: 7px;
+    }
+
+    .wb.g {
+      background: var(--green2);
+    }
+
+    .wb.sm {
+      width: 58%;
+    }
+
+    .wb.xs {
+      width: 35%;
+    }
+
+    .wth {
+      flex: 1;
+      background: linear-gradient(135deg, #E8F3E0, #C5DEA8);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+    }
+
+    .wfi {
+      padding: 12px 14px;
+    }
+
+    .wfi h5 {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+
+    .wfi p {
+      font-size: 11px;
+      color: var(--gl);
+      margin: 0;
+    }
+
+    /* TYPOGRAPHY & COLORS */
+    .tco {
+      background: var(--w);
+      border-radius: 24px;
+      padding: 52px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, .06);
+      margin: 0 28px;
+    }
+
+    .tc2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      margin-top: 36px;
+    }
+
+    .fd {
+      font-size: 52px;
+      font-weight: 700;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      border: 2px solid var(--br);
+      border-radius: 14px;
+      padding: 18px 26px;
+      display: inline-block;
+      margin-bottom: 16px;
+      color: #4C8A2F;
+    }
+
+    .fl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gl);
+      margin-bottom: 5px;
+    }
+
+    .fn {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .fv {
+      font-size: 13px;
+      color: var(--gray);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--br);
+    }
+
+    .fv:last-child {
+      border-bottom: none;
+    }
+
+    .fv b {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .cr {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .sw {
+      border-radius: 14px;
+      overflow: hidden;
+      width: 100px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .09);
+    }
+
+    .swc {
+      height: 72px;
+
+    }
+
+    /* hover effect */
+    .sw:hover .swc {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+
+    .swi {
+      padding: 9px 11px;
+      background: var(--cream);
+    }
+
+    .swn {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .swh {
+      font-size: 10px;
+      color: var(--gl);
+    }
+
+    /* VISUAL DESIGN */
+    .vo {
+      background: var(--cream);
+      border-radius: 28px;
+      padding: 56px 52px;
+      margin: 0 28px;
+    }
+
+    .vo h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .vg {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .vc {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 22px rgba(0, 0, 0, .07);
+    }
+
+    .vci {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .vci.v1 {
+      background: var(--gp);
+    }
+
+    .vci.v2 {
+      background: linear-gradient(135deg, #1A3A1A, #2B5A2B);
+    }
+
+    .vci.v3 {
+      background: linear-gradient(135deg, #E8F3E0, #A0C47A);
+    }
+
+    .vci.v4 {
+      background: linear-gradient(135deg, #C5DEA8, #E8F3E0);
+    }
+
+    .vcb {
+      padding: 22px;
+    }
+
+    .vcb h4 {
+      font-size: 14.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .vcb p {
+      font-size: 13px;
+      color: var(--gray);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    /* PHONES */
+    .ph-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    .ph {
+      width: 126px;
+      background: #111;
+      border-radius: 26px;
+      padding: 10px;
+      box-shadow: 0 14px 44px rgba(0, 0, 0, .16);
+    }
+
+    .phs {
+      background: var(--gp);
+      border-radius: 18px;
+      height: 225px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .phb2 {
+      background: var(--green);
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .phd {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .5);
+    }
+
+    .phbr {
+      font-size: 8px;
+      font-weight: 700;
+      color: #fff;
+      margin-left: 4px;
+    }
+
+    .phc {
+      padding: 9px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex: 1;
+    }
+
+    .phl {
+      background: #ccc;
+      border-radius: 2px;
+      height: 5px;
+    }
+
+    .phl.g {
+      background: var(--green2);
+    }
+
+    .phl.sm {
+      width: 55%;
+    }
+
+    .phcr {
+      background: #fff;
+      border-radius: 7px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      padding: 0 7px;
+      gap: 6px;
+      margin-top: 3px;
+    }
+
+    .pht {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: var(--gp);
+    }
+
+    .phls {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .phls div {
+      background: #eee;
+      border-radius: 2px;
+      height: 4px;
+    }
+
+    .phls div:last-child {
+      width: 60%;
+    }
+
+    /* THANK YOU */
+    .ty {
+      text-align: center;
+      padding: 80px 28px;
+      background: var(--gp);
+      border-top: 1px solid rgba(76, 138, 47, .15);
+    }
+
+    .ty-e {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    .ty h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .ty p {
+      font-size: 15px;
+      color: var(--gray);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1,
+    .hero-sub {
+      animation: fadeUp .55s ease both;
+    }
+
+    .hero-sub {
+      animation-delay: .12s;
+    }
+
+    @media(max-width:680px) {
+
+      .prob,
+      .ap-grid,
+      .tl2,
+      .tc2,
+      .vg {
+        grid-template-columns: 1fr;
+      }
+
+      .dt {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .wf-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .laptop {
+        width: 100%;
+      }
+
+      .tlo,
+      .tco,
+      .vo {
+        margin: 0 14px;
+        padding: 36px 28px;
+      }
+    }
+
+    .main-hero {
+      width: 100%;
+      height: 100vh;
+      /* full screen */
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* fills screen */
+      object-position: center;
+      /* adjust if needed */
+      display: block;
+    }
+
+    .prob-fig {
+      width: 250px;
+      /* control size */
+      height: 300px;
+    }
+
+    .prob-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .txt-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .txt-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #3D2F25;
+    }
+
+    .txt-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #8b6f5a;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .prob {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .prob>div {
+      flex: 1;
+    }
+
+    .approach-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .approach-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      background: #f8f6f2;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .approach-item:hover {
+      background: #f0ece6;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #8b6f5a;
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .approach-item p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #3D2F25;
+      margin: 0;
+    }
+
+    .problem-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .problem-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      background: #f8f6f2;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+
+    .problem-item:hover {
+      background: #f0ece6;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #8b6f5a;
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .problem-item p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #3D2F25;
+      margin: 0;
+    }
+
+    /* Layout */
+    .prob {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .problem-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Text cards */
+    .problem-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      background: #f8f6f2;
+      border-radius: 10px;
+      transition: 0.2s ease;
+    }
+
+    .problem-item:hover {
+      background: #f0ece6;
+    }
+
+    /* Dot */
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #8b6f5a;
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Text */
+    .problem-item p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #3D2F25;
+      margin: 0;
+    }
+
+    /* Image section */
+    .problem-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Premium image card */
+    .img-card {
+      background: #fff;
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .prob-img {
+      width: 260px;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* Hover effect */
+    .img-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Glow effect */
+    .prob-fig {
+      position: relative;
+    }
+
+    .prob-fig::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #e8ddd0 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .img-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .prob {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .prob-img {
+        width: 220px;
+      }
+    }
+
+    /* Section */
+    .approach-wrap {
+      padding: 80px 60px;
+      background: #fff;
+    }
+
+    .approach-title {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      margin-bottom: 50px;
+      color: #1A1410;
+    }
+
+    /* Layout */
+    .approach-flex {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    /* Image */
+    .approach-img-box {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .approach-img-card {
+      background: #fff;
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      transition: 0.3s ease;
+    }
+
+    .approach-img {
+      width: 260px;
+      height: auto;
+      display: block;
+    }
+
+    /* Hover */
+    .approach-img-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Glow */
+    .approach-img-box {
+      position: relative;
+    }
+
+    .approach-img-box::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, #e8ddd0 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .approach-img-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Text */
+    .approach-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .approach-item {
+      display: flex;
+      gap: 14px;
+      padding: 16px 18px;
+      background: #f8f6f2;
+      border-radius: 10px;
+      transition: 0.2s;
+    }
+
+    .approach-item:hover {
+      background: #f0ece6;
+    }
+
+    .approach-dot {
+      width: 8px;
+      height: 8px;
+      background: #8b6f5a;
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .approach-item p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #3D2F25;
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .approach-flex {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .approach-img {
+        width: 220px;
+      }
+    }
+
+    .role-label {
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #000;
+      /* My → black */
+    }
+
+    .role-label span {
+      color: #4C8A2F;
+      /* Role → green */
+    }
+
+
+    /* Section */
+    .dt-wrap {
+      background: #f5f2f2;
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    /* Title */
+    .dt-title {
+      font-size: 40px;
+      font-weight: 600;
+      color: #6AAF3D;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    /* underline bar */
+    .dt-title::after {
+      content: "";
+      display: block;
+      width: 320px;
+      height: 18px;
+      border-radius: 20px;
+      margin: 10px auto 0;
+    }
+
+    /* Flow layout */
+    .dt-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    /* Circle */
+    .dt-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 100%;
+      background: #E8F3E0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.05);
+    }
+
+    /* Icon */
+    .dt-circle img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    /* Arrow */
+    .dt-arrow {
+      font-size: 32px;
+      color: #6AAF3D;
+      letter-spacing: -4px;
+    }
+
+    /* STEP STRUCTURE */
+    .dt-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 160px;
+      gap: 8px;
+    }
+
+    /* TITLE (Define, Ideate...) */
+    .dt-label {
+      color: #000;
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    /* DESCRIPTION (2nd paragraph) */
+    .dt-desc {
+      color:#000;
+      font-size: 12px;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+
+
+
+
+    /* Section */
+    /* Section */
+    .timeline-wrap {
+      background: #efefef;
+      padding: 80px 40px;
+    }
+
+    /* Heading */
+    .timeline-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 600;
+      margin-bottom: 60px;
+      color: #000;
+    }
+
+    .timeline-title span {
+      color: #6AAF3D;
+      background: #e8f3e0;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+
+    /* Center container */
+    .timeline-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Card */
+    .timeline-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      max-width: 900px;
+      /* important */
+      width: 100%;
+    }
+
+    /* Image */
+    .timeline-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    /* Label */
+    .timeline-card p {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #3D2F25;
+    }
+
+    /* Section */
+    .ty-wrap {
+      padding: 100px 40px;
+      background: #fff;
+      text-align: center;
+    }
+
+    /* Container */
+    .ty-box {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Image */
+    .ty-img img {
+      width: 120px;
+      /* control size */
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Title */
+    .ty-title {
+      font-size: 36px;
+      font-weight: 600;
+      color: #1A1410;
+      margin-bottom: 10px;
+    }
+
+    /* Description */
+    .ty-desc {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .vd {
+      background: #000;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .vd h2 {
+      color: #fff;
+      margin-top: 12px;
+    }
+
+    /* IMAGE WRAPPER */
+    .vd-img {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* IMAGE STYLE */
+    .vd-img img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 16px;
+      transition: all 0.4s ease;
+    }
+
+    /* HOVER EFFECT */
+    .vd-img img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="main-hero">
+
+    <section class="main-hero">
+      <div class="hero-image">
+        <img src="img/Supergut/Group 1000009005.png" alt="Hero Image">
+      </div>
+    </section>
+
+  </section>
+
+
+  <!-- PROBLEM STATEMENT -->
+  <div class="wrap">
+    <div class="sec">
+      <p class="lbl">Problem Statement</p>
+      <h2><span class="hl">Problem Statement</span></h2>
+
+      <div class="prob">
+
+        <!-- LEFT → TEXT -->
+        <div class="problem-list">
+
+          <div class="problem-item">
+            <span class="dot"></span>
+            <p>Required a user-friendly above-the-fold layout for quick scanning of image gallery and key product
+              information.</p>
+          </div>
+
+          <div class="problem-item">
+            <span class="dot"></span>
+            <p>Needed a clearer and more prominent presentation of the ingredient list as the most critical information.
+            </p>
+          </div>
+
+          <div class="problem-item">
+            <span class="dot"></span>
+            <p>Product page had to remain informative yet concise, avoiding excessive text.</p>
+          </div>
+
+          <div class="problem-item">
+            <span class="dot"></span>
+            <p>Interactivity across the website needed improvement to create a more engaging and modern user experience.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- RIGHT → IMAGE -->
+        <div class="problem-section">
+          <div class="prob-fig">
+            <div class="img-card">
+              <img src="img/Supergut/Group 485.png" alt="Problem Image" class="prob-img">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+
+  <!-- THE APPROACH -->
+  <div class="approach-wrap">
+    <div class="approach-sec">
+      <h2><span class="hl">The Approach</span></h2>
+
+      <div class="approach-flex">
+
+        <!-- LEFT → IMAGE -->
+        <div class="approach-img-box">
+          <div class="approach-img-card">
+            <img src="img/Supergut/undraw_logic_re_nyb4 1.png" alt="Approach Image" class="approach-img">
+          </div>
+        </div>
+
+        <!-- RIGHT → TEXT -->
+        <div class="approach-content">
+
+          <div class="approach-item">
+            <span class="approach-dot"></span>
+            <p>Replaced the image carousel with a structured image gallery for faster scanning and improved visual
+              clarity above the fold.</p>
+          </div>
+
+          <div class="approach-item">
+            <span class="approach-dot"></span>
+            <p>Introduced dedicated testimonials and FAQ sections to build trust and reduce decision friction.</p>
+          </div>
+
+          <div class="approach-item">
+            <span class="approach-dot"></span>
+            <p>Designed a strong USP banner to clearly communicate product value at first glance.</p>
+          </div>
+
+          <div class="approach-item">
+            <span class="approach-dot"></span>
+            <p>Developed an interactive ingredient section to highlight key components without overwhelming users with
+              dense text.</p>
+          </div>
+
+          <div class="approach-item">
+            <span class="approach-dot"></span>
+            <p>Added a comparison chart to simplify decision-making and showcase product differentiation effectively.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+
+  <!-- MY ROLE -->
+  <div class="wrap">
+    <div class="role">
+      <p class="role-label">My <span>Role</span></p>
+      <div class="tags">
+        <span class="tag">Design Strategy</span>
+        <span class="tag">Problem Solution</span>
+        <span class="tag">Information Architecture</span>
+        <span class="tag">Empathy Mapping</span>
+        <span class="tag">Usability Testing</span>
+        <span class="tag">User Flow Mapping</span>
+        <span class="tag">Prototyping</span>
+        <span class="tag">Wireframes</span>
+        <span class="tag">Competitive Analysis</span>
+        <span class="tag ">Visual Design</span>
+        <span class="tag ">User Research</span>
+        <span class="tag ">User Personas</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+
+  <!-- DESIGN THINKING -->
+  <section class="dt-wrap">
+    <h2 class="dt-title">Design Thinking Process</h2>
+
+    <div class="dt-flow">
+
+      <div class="dt-step">
+        <div class="dt-circle">
+          <img src="img/Supergut/Group 1000009015.png" alt="">
+        </div>
+        <p class="dt-label">Research</p>
+        <p>User Research <br> Entrant Analysis</p>
+      </div>
+
+      <div class="dt-arrow">›››</div>
+
+      <div class="dt-step">
+        <div class="dt-circle">
+          <img src="img/Supergut/Group 1000009014.png" alt="">
+        </div>
+        <p class="dt-label">Define</p>
+        <p class="dt-desc">User Persons Goal Statement <br> User Journey Map</p>
+      </div>
+
+      <div class="dt-arrow">›››</div>
+
+      <div class="dt-step">
+        <div class="dt-circle">
+          <img src="img/Supergut/Group 1000009013.png" alt="">
+        </div>
+        <p class="dt-label">Ideate</p>
+        <p class="dt-desc">Brainstroming, Card Sorting <br>User Flow</p>
+      </div>
+
+      <div class="dt-arrow">›››</div>
+
+      <div class="dt-step">
+        <div class="dt-circle">
+          <img src="img/Supergut/Group 1000009012.png" alt="">
+        </div>
+        <p class="dt-label">Design</p>
+        <p class="dt-desc">Paper Wireframes<br>Visual Design, Prototype</p>
+      </div>
+
+      <div class="dt-arrow">›››</div>
+
+      <div class="dt-step">
+        <div class="dt-circle">
+          <img src="img/Supergut/Group 1000009011.png" alt="">
+        </div>
+        <p class="dt-label">Test</p>
+        <p class="dt-desc">Check Usability<br>A/B Testing</p>
+      </div>
+
+    </div>
+  </section>
+  <!-- PROJECT TIMELINE -->
+
+
+  <!-- WIREFRAMES -->
+  <section class="timeline-wrap">
+
+    <h2 class="timeline-title">
+      Project <span>Timeline</span>
+    </h2>
+
+    <div class="timeline-container">
+
+      <div class="timeline-card">
+        <img src="img/Supergut/Group 470.png" alt="UX Design Timeline">
+        <p>UX Design</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="timeline-wrap">
+
+    <h2 class="timeline-title">
+      High Fidelty<span>Wireframes</span>
+    </h2>
+
+    <div class="timeline-container">
+
+      <div class="timeline-card">
+        <img src="img/Supergut/Wireframe - 1.png" alt="UX Design Timeline">
+        <p>UX Design</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TYPOGRAPHY & COLORS -->
+  <div class="tco">
+    <!-- <p >Typography &amp; Colors</p> -->
+    <h2 class="lbl"> <span class="hl">Typography Colors</span></h2>
+    <div class="tc2">
+      <div>
+        <p class="fl">Font Used</p>
+        <div class="fd">Helvetica</div>
+        <div class="fn">Helvetica Neue</div>
+        <div class="fv"><b>Helvetica Bold</b> — Headlines &amp; emphasis</div>
+        <div class="fv"><b>Helvetica Medium</b> — Sub-headings, labels</div>
+        <div class="fv"><b>Helvetica Light</b> — Body copy &amp; captions</div>
+      </div>
+      <div>
+        <p class="fl">Color Used</p>
+        <div class="cr">
+          <div class="sw">
+            <div class="swc" style="background:#4C8A2F;"></div>
+            <div class="swi">
+              <div class="swn">Primary</div>
+              <div class="swh">#4C8A2F</div>
+            </div>
+          </div>
+          <div class="sw">
+            <div class="swc" style="background:#E8F3E0;"></div>
+            <div class="swi">
+              <div class="swn">Secondary</div>
+              <div class="swh">#E8F3E0</div>
+            </div>
+          </div>
+          <div class="sw">
+            <div class="swc" style="background:#1A1A1A;"></div>
+            <div class="swi">
+              <div class="swn">Text Dark</div>
+              <div class="swh">#1A1A1A</div>
+            </div>
+          </div>
+          <div class="sw">
+            <div class="swc" style="background:#888888;"></div>
+            <div class="swi">
+              <div class="swn">Text Muted</div>
+              <div class="swh">#888888</div>
+            </div>
+          </div>
+          <div class="sw">
+            <div class="swc" style="background:#F7F5EF;"></div>
+            <div class="swi">
+              <div class="swn">BG Cream</div>
+              <div class="swh">#F7F5EF</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISUAL DESIGN -->
+  <div class="vo" style="margin-top:64px;">
+    <p class="lbl" style="text-align:center;">Visual Design</p>
+    <div class="vd-img">
+      <img src="img/Supergut/Group 482.png" alt="Visual Design UI" />
+    </div>
+    </section>
+  </div>
+
+  <!-- FINAL SCREENS -->
+  <div class="wrap">
+    <div class="sec" style="text-align:center;">
+      <p class="lbl">Final Screens</p>
+      <h2>The finished product, <span class="hl">screen by screen</span></h2>
+      <div class="ph-row">
+        <div class="ph">
+          <div class="phs">
+            <div class="phb2">
+              <div class="phd"></div>
+              <div class="phd"></div>
+              <div class="phbr">supergut</div>
+            </div>
+            <div class="phc">
+              <div class="phl g"></div>
+              <div class="phl sm"></div>
+              <div class="phcr">
+                <div class="pht"></div>
+                <div class="phls">
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+              <div class="phcr">
+                <div class="pht" style="background:#C5DEA8;"></div>
+                <div class="phls">
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+              <div class="phl" style="margin-top:4px;"></div>
+              <div class="phl sm"></div>
+            </div>
+          </div>
+        </div>
+        <div class="ph">
+          <div class="phs">
+            <div class="phb2">
+              <div class="phd"></div>
+              <div class="phbr">Tracker</div>
+            </div>
+            <div class="phc">
+              <div class="phl g"
+                style="height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:8.5px;color:#fff;font-weight:700;">
+                82% Fiber Goal</div>
+              <div class="phl sm"></div>
+              <div class="phcr">
+                <div class="pht" style="background:#A0C47A;"></div>
+                <div class="phls">
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+              <div class="phcr">
+                <div class="pht"></div>
+                <div class="phls">
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ph">
+          <div class="phs">
+            <div class="phb2">
+              <div class="phd"></div>
+              <div class="phbr">Shop</div>
+            </div>
+            <div class="phc" style="display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:9px 8px;">
+              <div style="background:#fff;border-radius:7px;padding:5px;">
+                <div
+                  style="height:34px;background:var(--gp);border-radius:4px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;font-size:14px;">
+                  🌿</div>
+                <div style="height:4px;background:#ddd;border-radius:2px;"></div>
+              </div>
+              <div style="background:#fff;border-radius:7px;padding:5px;">
+                <div
+                  style="height:34px;background:#E8F3E0;border-radius:4px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;font-size:14px;">
+                  🫙</div>
+                <div style="height:4px;background:#ddd;border-radius:2px;"></div>
+              </div>
+              <div style="background:#fff;border-radius:7px;padding:5px;">
+                <div
+                  style="height:34px;background:var(--gp);border-radius:4px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;font-size:14px;">
+                  🥤</div>
+                <div style="height:4px;background:#ddd;border-radius:2px;"></div>
+              </div>
+              <div style="background:#fff;border-radius:7px;padding:5px;">
+                <div
+                  style="height:34px;background:#E8F3E0;border-radius:4px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;font-size:14px;">
+                  💊</div>
+                <div style="height:4px;background:#ddd;border-radius:2px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ph">
+          <div class="phs">
+            <div class="phb2">
+              <div class="phd"></div>
+              <div class="phbr">Profile</div>
+            </div>
+            <div class="phc">
+              <div style="text-align:center;padding:6px 0 4px;">
+                <div
+                  style="width:38px;height:38px;border-radius:50%;background:var(--green);margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:17px;">
+                  👤</div>
+              </div>
+              <div class="phl sm" style="margin:0 auto;"></div>
+              <div class="phl xs" style="margin:0 auto;"></div>
+              <div style="background:var(--green);border-radius:5px;height:17px;margin-top:6px;"></div>
+              <div class="phl" style="margin-top:5px;"></div>
+              <div class="phl sm"></div>
+            </div>
+          </div>
+        </div>
+        <div class="ph">
+          <div class="phs">
+            <div class="phb2">
+              <div class="phd"></div>
+              <div class="phbr">Insights</div>
+            </div>
+            <div class="phc">
+              <div style="background:#fff;border-radius:8px;padding:7px;margin-bottom:5px;">
+                <div
+                  style="height:48px;background:linear-gradient(135deg,#E8F3E0,#A0C47A);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9.5px;color:#4C8A2F;font-weight:700;">
+                  Gut Score: 78</div>
+              </div>
+              <div class="phl g" style="width:90%"></div>
+              <div class="phl sm"></div>
+              <div class="phl xs"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THANK YOU -->
+  <section class="ty-wrap">
+
+    <div class="ty-box">
+
+      <div class="ty-img">
+        <img src="img/Supergut/thanks.png" alt="Thank You">
+      </div>
+
+      <h2 class="ty-title">Thank you for your time</h2>
+
+      <p class="ty-desc">
+        A UX/UI Case Study crafted with research, empathy & design thinking.
+      </p>
+
+    </div>
+
+  </section>
+
+</body>
+
+</html>

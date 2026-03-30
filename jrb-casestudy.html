@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JRB – Jones Road Beauty | Kalyani Banginwar</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #F5F0E8;
+      --sand: #E8DDD0;
+      --warm: #C4A882;
+      --dark: #1A1410;
+      --mid: #3D2F25;
+      --muted: #8A7A6E;
+      --accent: #B8967A;
+      --white: #FDFAF6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 60px;
+      mix-blend-mode: normal;
+      backdrop-filter: blur(12px);
+      background: rgba(253, 250, 246, 0.85);
+      border-bottom: 1px solid rgba(196, 168, 130, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--dark);
+    }
+
+    .nav-back {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-back::before {
+      content: '←';
+      font-size: 16px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+    }
+
+    .hero-right {
+      height: 100%;
+    }
+
+    .hero-img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      /* FIX */
+      margin-left: 0;
+      /* REMOVE SHIFT */
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 6vw, 88px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--cream);
+      margin-bottom: 32px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--warm);
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(245, 240, 232, 0.55);
+      max-width: 380px;
+      margin-bottom: 52px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(196, 168, 130, 0.2);
+    }
+
+    .meta-item label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .meta-item span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--cream);
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      /* keeps clean edges */
+    }
+
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26, 20, 16, 0.3) 0%, transparent 60%);
+      z-index: 1;
+
+    }
+
+    .hero-img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top right;
+      display: block;
+      transition: transform 8s ease;
+      margin-left: -40px;
+      /* value adjust karo */
+    }
+
+    .hero:hover .hero-img-main {
+      transform: scale(1.03);
+    }
+
+    .hero-img-overlay {
+      position: absolute;
+      bottom: 60px;
+      left: -40px;
+      width: 180px;
+      height: 220px;
+      border: 3px solid var(--white);
+      object-fit: cover;
+      z-index: 2;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-number {
+      position: absolute;
+      top: 50%;
+      right: 32px;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 140px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.04);
+      z-index: 0;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    /* ── SCROLL INDICATOR ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 80px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.35);
+      z-index: 3;
+    }
+
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: rgba(196, 168, 130, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      animation: slide 2s ease infinite;
+    }
+
+    @keyframes slide {
+      0% {
+        left: -100%
+      }
+
+      100% {
+        left: 100%
+      }
+    }
+
+    /* ── OVERVIEW STRIP ── */
+    .overview-strip {
+      background: var(--sand);
+      padding: 60px 80px;
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(196, 168, 130, 0.3);
+    }
+
+    .strip-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 100px;
+      padding-top: 4px;
+    }
+
+    .strip-content {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      line-height: 1.6;
+      color: var(--mid);
+      flex: 1;
+    }
+
+    /* ── SECTION BASE ── */
+    section,
+    .showcase,
+    .bobbi,
+    .results {
+      padding: 100px 6vw;
+      /* instead of 80px */
+    }
+
+    .section-tag {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .section-body {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--muted);
+      max-width: 600px;
+    }
+
+    /* ── CHALLENGE ── */
+    .challenge {
+      background: var(--white);
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .challenge-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .challenge-points li {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .point-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--sand);
+      line-height: 1;
+      min-width: 44px;
+    }
+
+    .point-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+      font-size: 15px;
+    }
+
+    .point-text p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .challenge-img-wrap {
+      position: relative;
+    }
+
+    .challenge-img-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-caption {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      background: var(--dark);
+      color: var(--cream);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 20px;
+      text-align: center;
+    }
+
+    /* ── SOLUTIONS ── */
+    .solutions {
+      background: var(--cream);
+    }
+
+    .solutions-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 80px;
+      align-items: end;
+    }
+
+    .solutions-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--sand);
+    }
+
+    .sol-card {
+      background: var(--white);
+      padding: 40px 32px;
+      transition: background 0.3s;
+    }
+
+    .sol-card:hover {
+      background: var(--dark);
+    }
+
+    .sol-card:hover .sol-icon,
+    .sol-card:hover .sol-title,
+    .sol-card:hover .sol-desc {
+      color: var(--cream);
+    }
+
+    .sol-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+      display: block;
+      color: var(--accent);
+      transition: color 0.3s;
+    }
+
+    .sol-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--dark);
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+
+    .sol-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    /* ── PRODUCT SHOWCASE ── */
+    .showcase {
+      background: var(--dark);
+      padding: 100px 80px;
+      background: #ffffff;
+      /* white background */
+    }
+
+    .showcase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    .showcase-header .section-title {
+      color: var(--cream);
+      margin-bottom: 0;
+    }
+
+    .showcase-header .section-tag {
+      color: rgba(196, 168, 130, 0.7);
+    }
+
+    .showcase-header .section-tag::before {
+      background: rgba(196, 168, 130, 0.4);
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 3px;
+    }
+
+    .showcase-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .showcase-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .showcase-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 260px;
+      transition: transform 0.6s ease;
+    }
+
+    .showcase-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .showcase-item-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px;
+      background: linear-gradient(transparent, rgba(26, 20, 16, 0.9));
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.7);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .showcase-item:hover .showcase-item-label {
+      transform: translateY(0);
+    }
+
+    /* ── BOBBI SECTION ── */
+    .bobbi {
+      background: var(--mid);
+      padding: 100px 80px;
+    }
+
+    .bobbi-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .bobbi-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bobbi .section-title {
+      color: var(--cream);
+    }
+
+    .bobbi .section-body {
+      color: rgba(245, 240, 232, 0.5);
+      max-width: 100%;
+    }
+
+    .bobbi-quote {
+      margin-top: 40px;
+      padding: 32px;
+      border-left: 2px solid var(--accent);
+      background: rgba(245, 240, 232, 0.05);
+    }
+
+    .bobbi-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .bobbi-quote cite {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--cream);
+    }
+
+    .testimonials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      background: var(--sand);
+    }
+
+    .testi-item {
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1;
+    }
+
+    .testi-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .testi-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .testi-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(26, 20, 16, 0.85) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .testi-item:hover .testi-overlay {
+      opacity: 1;
+    }
+
+    .testi-quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .testi-author {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm);
+    }
+
+    /* ── MOCKUPS ── */
+    .mockups {
+      background: var(--sand);
+    }
+
+    .mockups-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+      margin-top: 60px;
+      scrollbar-width: none;
+    }
+
+    .mockups-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mockup-card {
+      flex: 0 0 220px;
+      background: var(--dark);
+      border-radius: 28px;
+      padding: 16px;
+      position: relative;
+    }
+
+    .mockup-screen {
+      border-radius: 18px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .mockup-screen img {
+      width: 100%;
+      display: block;
+    }
+
+    .mockup-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .mockup-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .mockup-dots span:first-child {
+      background: var(--warm);
+    }
+
+    /* ── RESULTS ── */
+    .results {
+      background: var(--dark);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: rgba(196, 168, 130, 0.15);
+      margin-top: 60px;
+    }
+
+    .result-item {
+      background: var(--dark);
+      padding: 48px 36px;
+      border: 1px solid rgba(196, 168, 130, 0.1);
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .result-item:hover {
+      border-color: var(--accent);
+      background: rgba(196, 168, 130, 0.05);
+    }
+
+    .result-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--cream);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .result-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .results .section-title {
+      color: var(--cream);
+    }
+
+    .results .section-tag {
+      color: rgba(196, 168, 130, 0.6);
+    }
+
+    .results .section-tag::before {
+      background: rgba(196, 168, 130, 0.3);
+    }
+
+    /* ── NEXT PROJECT ── */
+    .next-project {
+      background: var(--accent);
+      padding: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .next-project h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--dark);
+    }
+
+    .next-project a {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--dark);
+      padding-bottom: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .next-project a:hover {
+      opacity: 0.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 60px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(196, 168, 130, 0.1);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--cream);
+      font-weight: 300;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 20px 28px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-right {
+        height: 56vw;
+      }
+
+      .hero-left {
+        padding: 100px 28px 60px;
+      }
+
+      section,
+      .showcase,
+      .bobbi,
+      .results {
+        padding: 70px 28px;
+      }
+
+      .overview-strip {
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 28px;
+      }
+
+      .challenge-grid,
+      .solutions-intro,
+      .bobbi-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .solutions-cards,
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .showcase-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .showcase-item:first-child {
+        grid-row: auto;
+      }
+
+      .next-project,
+      footer {
+        flex-direction: column;
+        gap: 28px;
+        text-align: center;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-img-overlay {
+        display: none;
+      }
+
+      .mockup-card {
+        flex: 0 0 160px;
+      }
+
+      .result-number {
+        font-size: 48px;
+      }
+    }
+
+    .goals {
+      /* background: var(--sand); */
+      text-align: center;
+    }
+
+    .goals-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--mid);
+      margin-bottom: 50px;
+    }
+
+    .goals-row {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .goal {
+      max-width: 260px;
+      text-align: center;
+    }
+
+    .goal-icon {
+      width: 80px;
+      /* increased */
+      height: 90px;
+      background: #8b6f5a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .goal-icon img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .goal p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--mid);
+    }
+
+
+    .center-head {
+      text-align: center;
+    }
+
+    .center-head .section-tag {
+      justify-content: center;
+    }
+
+    .goals {
+      margin-top: 40px;
+    }
+
+    .goals-row {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="hero-title">Jones <br><em>Road Beauty</em></h1>
+      <p class="hero-desc">Jones Road Beauty is a clean, minimalist makeup brand founded by Bobbi Brown in 2020. It
+        champions natural beauty with multi-purpose, high-performance products for all ages and skin tones.
+
+        The brand rejects excess, offering a curated line built on transparency and strict ingredient standards.
+
+        Its sleek, intuitive digital experience mirrors the philosophy: simple, effective, and authentically beautiful.
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <!-- Using a warm-toned beauty image -->
+      <img src="img/JRB/hero.png" alt="Jones Road Beauty" class="hero-img-main">
+      <div class="hero-number">JRB</div>
+    </div>
+
+    <div class="scroll-hint">
+      <span class="scroll-line"></span>
+      Scroll to explore
+    </div>
+  </section>
+
+  <!-- OVERVIEW STRIP -->
+  <!-- <div class="overview-strip fade-up">
+    <span class="strip-label">Overview</span>
+    <p class="strip-content">
+      Jones Road Beauty was founded by legendary makeup artist Bobbi Brown on the belief that beauty should feel
+      effortless, honest, and made for real people. Our challenge was to translate that philosophy into a cohesive
+      digital ecosystem.
+    </p>
+  </div> -->
+
+  <!-- CHALLENGE -->
+  <section class="challenge">
+    <h2 class="section-title"><em>Jones Road Beauty</em><br>User Problems</h2>
+
+    <div class="challenge-grid fade-up">
+      <ul class="challenge-points">
+        <li>
+          <span class="point-num">01</span>
+          <div class="point-text">
+            <strong>Brand USP (clean, minimalist, hydration-focused beauty) is not instantly clear.</strong>
+            <p>Users experience choice fatigue without guided pathways.</p>
+          </div>
+        </li>
+        <li>
+          <span class="point-num">02</span>
+          <div class="point-text">
+            <strong>Limited interactivity reduces engagement and perceived modernity.</strong>
+            <p>The product discovery and checkout experience was disjointed, leading to high cart abandonment rates and
+              poor mobile conversion.</p>
+          </div>
+        </li>
+        <li>
+          <span class="point-num">03</span>
+          <div class="point-text">
+            <strong>Inconsistent clickable elements create hesitation.</strong>
+            <p>The brand had a loyal following but lacked tools to showcase authentic customer stories and
+              user-generated content at scale.</p>
+          </div>
+        </li>
+        <li>
+          <span class="point-num">04</span>
+          <div class="point-text">
+            <strong>Lack of product education lowers purchase confidence.</strong>
+            <p>Communicating the extensive, inclusive shade range effectively across digital touchpoints remained a
+              persistent design challenge.</p>
+          </div>
+        </li>
+        <li>
+          <span class="point-num">05</span>
+          <div class="point-text">
+            <strong>Shade selection uncertainty increases friction.</strong>
+            <p>Communicating the extensive, inclusive shade range effectively across digital touchpoints remained a
+              persistent design challenge.</p>
+          </div>
+        </li>
+        <li>
+          <span class="point-num">06</span>
+          <div class="point-text">
+            <strong>Product discovery relies heavily on scrolling instead of structured search.</strong>
+            <p>Communicating the extensive, inclusive shade range effectively across digital touchpoints remained a
+              persistent design challenge.</p>
+          </div>
+        </li>
+        <li>
+          <span class="point-num">07</span>
+          <div class="point-text">
+            <strong>Content hierarchy not fully optimized for SEO visibility and keyword targeting..</strong>
+            <p>Communicating the extensive, inclusive shade range effectively across digital touchpoints remained a
+              persistent design challenge.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="challenge-img-wrap fade-up">
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&q=80" alt="Challenge">
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="solutions">
+
+    <div class="solutions-intro fade-up center-head">
+      <div>
+        <div class="section-tag">Possible Solutions</div>
+        <h2 class="section-title">Project <em>Goals</em></h2>
+      </div>
+    </div>
+
+    <div class="goals fade-up">
+      <div class="goals-row">
+
+        <div class="goal">
+          <div class="goal-icon">
+            <img src="img/JRB/i1.png" alt="">
+          </div>
+          <p>
+            Redesign the website into a cleaner, more interactive experience with
+            improved structure, performance, and SEO visibility.
+          </p>
+        </div>
+
+        <div class="goal">
+          <div class="goal-icon">
+            <img src="img/JRB/i2.png" alt="">
+          </div>
+          <p>
+            Encourage users to explore, understand, and connect with the brand
+            through intuitive navigation and compelling content.
+          </p>
+        </div>
+
+        <div class="goal">
+          <div class="goal-icon">
+            <img src="img/JRB/i3.png" alt="">
+          </div>
+          <p>
+            Communicate how the products are hygienic, easy to use, and designed
+            for all age groups — building clarity and trust.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PRODUCT SHOWCASE -->
+
+  <!-- FROM BOBBI -->
+  <section class="bobbi">
+    <div class="bobbi-inner fade-up">
+      <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=700&q=80" alt="From Bobbi"
+        class="bobbi-img">
+      <div>
+        <div class="section-tag" style="color:rgba(196,168,130,0.6)">From Bobbi</div>
+        <h2 class="section-title" style="color:var(--cream)">The philosophy<br><em>behind the brush</em></h2>
+        <p class="section-body">Bobbi Brown spent decades telling women they were beautiful before makeup. Jones Road is
+          the culmination of that belief — products designed to work with your skin, not against it.</p>
+        <div class="bobbi-quote">
+          <p>"I started Jones Road because I wanted to make products that actually work for real women — not the idea of
+            a woman."</p>
+          <cite>— Bobbi Brown, Founder</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="testimonials-header fade-up">
+      <div>
+        <div class="section-tag">Community</div>
+        <h2 class="section-title">What people<br><em>are saying</em></h2>
+      </div>
+      <p style="font-size:13px;color:var(--muted);max-width:260px;line-height:1.7">Real customers, real results. No
+        filters, no retouching — just honest beauty.</p>
+    </div>
+
+    <div class="testimonials-grid fade-up">
+      <div class="testi-item">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&q=80" alt="">
+        <div class="testi-overlay">
+          <p class="testi-quote-text">"I've never felt more like myself wearing makeup."</p>
+          <span class="testi-author">— Sarah M., 52</span>
+        </div>
+      </div>
+      <div class="testi-item">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=500&q=80" alt="">
+        <div class="testi-overlay">
+          <p class="testi-quote-text">"The shade finder actually found my shade. First time ever."</p>
+          <span class="testi-author">— Priya K., 38</span>
+        </div>
+      </div>
+      <div class="testi-item">
+        <img src="https://images.unsplash.com/photo-1597586124394-fbd6ef244026?w=500&q=80" alt="">
+        <div class="testi-overlay">
+          <p class="testi-quote-text">"Simple, honest, and it works. What more do you need?"</p>
+          <span class="testi-author">— Dana R., 44</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOBILE MOCKUPS -->
+  <section class="mockups">
+    <div class="fade-up">
+      <div class="section-tag">Final View</div>
+      <h2 class="section-title">Mobile-first<br><em>experience</em></h2>
+    </div>
+
+    <div class="mockups-scroll fade-up">
+      <div class="mockup-card">
+        <div class="mockup-screen">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&q=80" alt="App Screen 1">
+        </div>
+        <div class="mockup-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="mockup-card">
+        <div class="mockup-screen">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=300&q=80" alt="App Screen 2">
+        </div>
+        <div class="mockup-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="mockup-card">
+        <div class="mockup-screen">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&q=80" alt="App Screen 3">
+        </div>
+        <div class="mockup-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="mockup-card">
+        <div class="mockup-screen">
+          <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=300&q=80" alt="App Screen 4">
+        </div>
+        <div class="mockup-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="mockup-card">
+        <div class="mockup-screen">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&q=80" alt="App Screen 5">
+        </div>
+        <div class="mockup-dots"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results">
+    <div class="fade-up">
+      <div class="section-tag">Results</div>
+      <h2 class="section-title" style="color:var(--cream)">Numbers that<br><em style="color:var(--warm)">speak</em></h2>
+    </div>
+    <div class="results-grid fade-up">
+      <div class="result-item">
+        <span class="result-number">+68%</span>
+        <span class="result-label">Conversion Rate Increase</span>
+      </div>
+      <div class="result-item">
+        <span class="result-number">3.2×</span>
+        <span class="result-label">Return Visit Rate</span>
+      </div>
+      <div class="result-item">
+        <span class="result-number">−41%</span>
+        <span class="result-label">Cart Abandonment</span>
+      </div>
+      <div class="result-item">
+        <span class="result-number">94%</span>
+        <span class="result-label">Shade Match Satisfaction</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT PROJECT -->
+  <div class="next-project fade-up">
+    <h2>Next: <em style="font-style:italic">Supergut →</em></h2>
+    <a href="#">View Case Study</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">KB.</div>
+    <div class="footer-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">Behance</a>
+      <a href="#">Dribbble</a>
+      <a href="#">Contact</a>
+    </div>
+    <p class="footer-copy">© 2024 Kalyani Banginwar</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Nav shadow on scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow =
+        window.scrollY > 20 ? '0 2px 24px rgba(26,20,16,0.1)' : 'none';
+    });
+  </script>
+</body>
+
+</html>
